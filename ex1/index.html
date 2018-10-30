@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="meyer.css"> -->
+    <style>
+        /*global 全域*/
+        * {
+            font-family: "微軟正黑體";
+            box-sizing: border-box;
+        }
+        html,body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,img {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        .clearfix::after {
+            content:"";
+            display: block;
+            clear: both;
+        }
+
+        .full-width {
+            width: 100%;
+            background-color: #ffffff; /*背景色*/
+        }
+        .fixed-width {
+            width: 1200px;
+            /* width: 100%; */
+            margin: auto;
+           
+        }
+        .col-1 {
+            width: calc(100% / 12 * 1);
+        }
+
+        .col-2 {
+            width: calc(100% / 12 * 2);
+        }
+        .col-3 {
+            width: calc(100% / 12 * 3);
+        }
+        .col-4 {
+            width: calc(100% / 12 * 4);
+        }
+        .col-5 {
+            width: calc(100% / 12 * 5);
+        }
+        .col-6 {
+            width: calc(100% / 12 * 6);
+        }
+        .col-7 {
+            width: calc(100% / 12 * 7);
+        }
+        .col-8 {
+            width: calc(100% / 12 * 8);
+        }
+        .col-9 {
+            width: calc(100% / 12 * 9);
+        }
+        .col-10 {
+            width: calc(100% / 12 * 10);
+        }
+        .col-11 {
+            width: calc(100% / 12 * 11);
+        }
+        .col-12 {
+            width: calc(100% / 12 * 12);
+        }
+        [class*="col"]{
+            float: left;
+            padding: 10px;
+        }
+
+        #banner {
+            background-image: url(https://source.unsplash.com/random/1600x600);
+            background-position: center; /*置中*/
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* height: 600px; */
+            padding: 200px 0;  /*上下 300px*/
+        }
+        #about {
+            width: 100%;
+            /* padding: 100px 0; */
+            background-color: #ffffff; /*背景色*/
+            margin: 50px;
+            text-align: center;
+        }
+
+        #service {
+            padding: 100px 0;
+        }
+        #ads {
+            background-image: url(images/1111.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 70px;
+            height: 450px;
+        }
+        #banner1 {
+            padding: 30px;
+            width: 30%;
+            height: 300px;
+            /* background-color: #ffcd8c; 背景色 */
+           margin: auto;
+        }
+
+        #sh1{
+        color: #ffffff;
+        text-decoration: none;
+        text-align: left;
+        font-family: Arial, "微軟正黑體" /* font-family: 字型  */
+        }
+        #sp1{
+        color: #ffffff;
+        text-decoration: none;
+        text-align: left;
+        font-family: Arial, "微軟正黑體" /* font-family: 字型  */
+        }
+        #sp2{
+        /* width: 50%; */
+        color: #000000;
+        text-decoration: none;
+        text-align: center;
+        font-family: Arial, "微軟正黑體" /* font-family: 字型  */
+        }
+
+        #contact {
+            padding: 100px 0;
+        }
+
+        #nav a{
+            color: rgb(14, 14, 14);
+            text-decoration: none; /* 連結無底線*/
+            /* margin-left: 5px; */
+            /* margin-right: 15px; */
+            padding: 10px;
+        }
+        #nav a:hover { /*虛擬類別*/
+            color: rgb(255, 255, 255);
+            background-color: rgb(78, 78, 78);
+            text-decoration: underline; /*加底線*/
+        }
+        #nav1 a{
+            color: rgb(251, 255, 0);
+            text-decoration: none; /* 連結無底線*/
+            /* margin-left: 5px; */
+            /* margin-right: 15px; */
+            padding: 10px;
+        }
+        #nav1 a:hover { /*虛擬類別*/
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            text-decoration: underline; /*加底線*/
+        }
+
+            .container {
+            width: 1200px;
+            height: 150px;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            margin: auto;
+            font-size: 0;
+        }
+        .container2 {
+            width: 100%;
+            height: 400px;
+            background-color: #aaa;
+            text-align: center;
+            margin-top: 100px;
+            font-size: 0;
+        }
+        .container3 {
+            width: 100%;
+            height: 120px;
+            background-color: rgb(213, 255, 136);
+            /* text-align: center; */
+            margin-top: 100px;
+        }
+        .container4 {
+            width: 100%;
+            height: 80px;
+            background-color: rgb(213, 255, 136);
+            /* text-align: center; */
+            margin-top: 100px;
+        }
+        .container5 {
+            width: 100%;
+            height: 250px;
+            background-color: rgb(82, 82, 82);
+            /* text-align: center; */
+            margin-top: 100px;
+
+        }
+        .container6 {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(51, 51, 51);
+            /* text-align: center; */
+            margin-top: 0px;
+
+        }
+        .box {
+            /* background-color: #2debbb; */
+            display: inline-block;
+            vertical-align: middle;
+            width: 480px;
+            font-size: 16px;
+            text-align: left;
+            padding: 0 30px;
+        }
+        .box-2 {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            /* background-color: #0af; */
+        }
+        .box1 {
+            /* background-color: #2debbb; */
+            display: inline-block;
+            vertical-align: middle;
+            width: 350px;
+            font-size: 16px;
+            text-align: left;
+            padding: 0 30px;
+        }
+        .box1-2 {
+            display: inline-block;
+            vertical-align: middle;
+            width: 180px;
+            height: 100px;
+            padding: 0px;
+            /* background-color: #0af; */
+        }
+        .box-3 {
+            /* background-color: #2debbb; */
+            width: calc(100%/3);
+            font-size: 16px;
+            float: left;
+            /* padding: 0 30px; */
+        }
+        .box-4 {
+            /* background-color: #2debbb; */
+            width: calc(100%/4);
+            font-size: 16px;
+            float: left;
+            /* padding: 0 30px; */
+        }
+ /* 用 CSS 產生完整的圓形 */
+ .demo6 {
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	border: 1px solid red;
+	border-radius: 70px;	/*高度 */
+}
+
+   .demo7 {
+	width: 120px;
+	height: 120px;
+	line-height: 120px;
+    text-align: center;
+	border: 2px solid rgb(75, 30, 238);
+	border-radius: 120px;	/* 高度 */
+}
+.demo8 {
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+    text-align: center;
+	border: 2px solid rgb(231, 255, 12);
+	border-radius: 45px;	/* 高度 */
+}
+
+ .login {
+            float: left;
+            padding: 15px;
+        }
+ .login1{
+            float: right;
+            padding: 20px;
+        }
+        .test1 {
+            width: calc(100%/3);
+            font-size: 16px;
+            float: left;
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+        }
+ 
+    </style>
+
+</head>
+<body>
+
+    <div class="full-width">
+                <div class="fixed-width clearfix">
+                <div class="col-7">
+                  <a href="#"><img src="images/logo.jpg"></a>
+                </div>
+                <div class="col-5" id="nav">
+                    <a href="#">產品</a>
+                    <a href="#">熱門活動</a>
+                    <a href="#">商用電腦</a>
+                    <a href="#">服務&社群</a>
+                    <a href="#">商店</a>
+                </div>          
+                </div>
+                <div class="full-width clearfix" id="ads">
+                         <div class="col-6" id="banner1">
+                          <h1 id="sh1">你，為誰而戰!</h1>
+                          <p id="sp1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda consequuntur minus facere qui voluptate debitis nobis commodi repellendus, iusto non. Iste debitis quasi qui odit facilis deserunt, ipsam eum animi.</p>
+                          <a href="#">More</a>
+                        </div>
+                        <div class="col-6" >
+                           
+                        </div>          
+                       
+               </div>
+
+               <div class="fixed-width clearfix">
+                <div class="col-12" id="about">
+                  <h1>軍團對決，刺激降臨</h1>
+                  <P id="sp2">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid eveniet
+                      <br>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolor, non recusandae nam eveniet at consectetur.                  </P>
+                
+                </div>
+               
+                </div>
+                <div class="container">
+                    <!-- 快速鍵 DIV . ID # -->
+                            <div class="box-2">
+                                <div class="demo6">圈</div>
+                            </div>
+                            <div class="box">
+                                <h2>title</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quisquam sint omnis atque. 
+                                </p>
+                              
+                            </div>
+                           
+                            <div class="box-2">
+                                <div class="demo6">圈</div>
+                                </div>
+                                <div class="box">
+                                        <h2>title</h2>
+                                        <p>
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cum nulla quod error voluptatum.
+                                        </p>
+                                       
+                                    </div>
+                                    <div class="box-2">
+                                        <div class="demo6">圈</div>
+                                        </div>
+                                        <div class="box">
+                                                <h2>title</h2>
+                                                <p>
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cum nulla quod error voluptatum.
+                                                </p>
+                                               
+                                            </div>
+                                     <div class="box-2">
+                                        <div class="demo6">圈</div>
+                                     </div>
+                                     <div class="box">
+                                          <h2>title</h2>
+                                      <p>
+                                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cum nulla quod error voluptatum.
+                                      </p>
+                                                       
+                             </div>
+                        </div>
+    
+                        <div class="container2">
+
+                                    <div class="box-3">
+                                  <a href="#"><img src="images/jt_img01.jpg" width="100%" height="600"></a>
+                                
+                                </div>
+                            
+                                    <div class="box-3">
+                                    <a href="#"><img src="images/jt_img02.jpg" width="100%" height="600"></a>
+                             
+                                </div>
+                                
+                                        <div class="box-3">
+                                    <a href="#"><img src="images/jt_img03.jpg" width="100%" height="600"></a>
+                                
+                                </div>
+                            </div>
+                            <div class="fixed-width clearfix">
+                                    <div class="col-12" id="about">
+                                      <h1>開箱有禮；無限刷怪，雙倍經驗</h1>
+                                      <P id="sp2">
+                                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid eveniet
+                                          <br>
+                                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolor, non recusandae nam eveniet at consectetur.                  </P>
+                                    
+                                    </div>
+                                   
+                                    </div>
+                                     
+                                    <div class="fixed-width clearfix">
+                                            <div class="col-12" id="nav"><center>
+                                                    <a href="#">產品</a>
+                                                    <a href="#">熱門活動</a>
+                                                    <a href="#">商用電腦</a>
+                                                    <a href="#">服務&社群</a>
+                                                    <a href="#">商店</a>
+                                                    </center>
+                                    </div>
+                                    </div>
+                                    <div class="fixed-width clearfix">
+                                            <div class="col-3" id="nav">
+                                             <img src="images/a001.jpg" width="100%" height="200">
+                                             <H2>全民槍戰</H2>
+                                             <p>
+                                               Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                             </p>
+                                    </div>
+                                    
+                                             <div class="col-3" id="nav">
+                                             <img src="images/a001.jpg" width="100%" height="200">
+                                             <H2>全民槍戰</H2>
+                                             <p>
+                                               Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                             </p>
+                                    </div>
+                                   
+                                            <div class="col-3" id="nav">
+                                             <img src="images/a001.jpg" width="100%" height="200">
+                                             <H2>全民槍戰</H2>
+                                             <p>
+                                               Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                             </p>
+                                    </div>
+                                   
+                                            <div class="col-3" id="nav">
+                                             <img src="images/a001.jpg" width="100%" height="200">
+                                             <H2>全民槍戰</H2>
+                                             <p>
+                                               Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                             </p>
+                                    </div>
+                                </div>
+                                <div class="fixed-width clearfix">
+                                        <div class="col-3" id="nav">
+                                         <img src="images/a002.jpg" width="100%" height="200">
+                                         <H2>全民槍戰</H2>
+                                         <p>
+                                           Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                         </p>
+                                </div>
+                                
+                                        <div class="col-3" id="nav">
+                                         <img src="images/a002.jpg" width="100%" height="200">
+                                         <H2>全民槍戰</H2>
+                                         <p>
+                                           Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                         </p>
+                                </div>
+                               
+                                        <div class="col-3" id="nav">
+                                         <img src="images/a002.jpg" width="100%" height="200">
+                                         <H2>全民槍戰</H2>
+                                         <p>
+                                           Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                         </p>
+                                </div>
+                              
+                                        <div class="col-3" id="nav">
+                                         <img src="images/a002.jpg" width="100%" height="200">
+                                         <H2>全民槍戰</H2>
+                                         <p>
+                                           Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                         </p>
+                                </div>
+                            </div>
+                            <div class="container3" id="nav">
+                                    <div class="fixed-width clearfix">\
+                                            <div class="col-7">
+                                    <div class="login">
+                                      <h1>喚醒世界血性！為戰傾城</h1>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit debitis sit minima nihil, harum cumque sunt voluptates perspiciatis laudantium doloremque.s
+                                      </p>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="login1">
+                                     
+                                        <a href="#">熱門活動</a>
+                                        <a href="#">馬上加入</a>
+                                                                             
+                                    </div>   
+                                </div>       
+                                    </div>
+                              </div>
+
+                              <div class="fixed-width clearfix">
+                                    <div class="col-12" id="about">
+                                      <h1>只要有心，人人都可以當食神</h1>
+                                      <P id="sp2">
+                                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid eveniet
+                                          <br>
+                                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolor, non recusandae nam eveniet at consectetur.                  </P>
+                                    
+                                    </div>
+                              </div>
+
+                                    <div class="container">
+                                            <!-- 快速鍵 DIV . ID # -->
+                                            <div class="box1-2">
+                                                    <img src="images/a001.jpg" width="160" height="100">
+                                                </div>
+                                                <div class="box1">
+                                                    <h2>title</h2>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quisquam sint omnis atque. Rem nulla nostrum 
+                                                    </p>
+                                                   
+                                                </div>
+                                               
+                                                <div class="box1-2">
+                                                        <img src="images/a001.jpg" width="160" height="100">
+                                                    </div>
+                                                    <div class="box1">
+                                                            <h2>title</h2>
+                                                            <p>
+                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quisquam sint omnis atque. Rem nulla 
+                                                            </p>
+                                           </div>
+                                           <div class="box1-2">
+                                                <img src="images/a001.jpg" width="160" height="100">
+                                            </div>
+                                            <div class="box1">
+                                                <h2>title</h2>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quisquam sint omnis atque. Rem nulla nostrum 
+                                                </p>
+                                               
+                                            </div>
+                                           
+                                            <div class="box1-2">
+                                                    <img src="images/a001.jpg" width="160" height="100">
+                                                </div>
+                                                <div class="box1">
+                                                        <h2>title</h2>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quisquam sint omnis atque. Rem nulla 
+                                                        </p>
+                                       </div>
+                                     </div>
+
+                                     <div class="container4" >
+                                            <div class="fixed-width clearfix">
+                                                    <div class="col-7">
+                                            <div class="login">
+                                              <h3>不論生死，只求一戰，抵抗魔族，榮光再現</h3>
+                                            </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="login1">
+                                             
+                                                <a href="#">  <input id="postcode" name="postcode" type="text" class="fildform" ></a>                                                </a>
+                                                <a href="#"> <input class="submit" type="submit" value="Send" style="width:120px;height:25px;border:2px rgb(17, 167, 62) dashed;background-color:rgb(224, 255, 189);"/>
+                                                </a>
+                                                                                     
+                                            </div>   
+                                        </div>       
+                                            </div>
+                                      </div>
+
+                                      <div class="fixed-width clearfix">
+                                            <div class="col-12" id="about">
+                                              <h1>全新職業，黑妖降臨</h1>
+                                              <P id="sp2">
+                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid eveniet
+                                                  <br>
+                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolor, 
+                                                  <br>
+                                                  non recusandae nam eveniet at consectetur. 
+                                                </P>
+                                            
+                                            </div>
+                                      </div>
+                                      <div class="fixed-width clearfix">
+                                            <div class="box-4">
+                                                    <div class="demo7"><h2 class="counter">9,670</h2></div>
+                                                  </div> 
+                                                  <div class="box-4">
+                                                        <div class="demo7"><h2 class="counter">1,450</h2></div>
+                                                      </div> 
+                                                      <div class="box-4">
+                                                            <div class="demo7"><h2 class="counter">1,442</h2></div>
+                                                          </div>
+                                                          <div class="box-4">
+                                                                <div class="demo7"><h2 class="counter">1,100</h2></div>
+                                                              </div> 
+                                    </div>
+                                  
+                                      <div class="container5" >
+                                            <div class="fixed-width clearfix">
+                                            <div class="test1">
+                                           
+                                              <h1>WRFRM</h1>
+                                              <p>
+                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore dicta, itaque aliquam tempora labore, cupiditate facere nam, eum sequi .  
+                                              </p>
+                                              <br>
+                                                <input class="submit" type="submit" value="Send" style="width:120px;height:25px;border:2px rgb(17, 70, 167) dashed;background-color:rgb(177, 237, 255);"/>
+                                            
+                                              </div>
+                                        
+                                          <div class="test1">
+                                           
+                                                <H1>about</H1>
+                                                <P>
+                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ex aliquam minima animi assumenda ?   
+                                                </P>
+                                                <br><br>
+                                                 <input class="submit" type="submit" value="Send" style="width:120px;height:25px;border:2px rgb(17, 167, 62) dashed;background-color:rgb(224, 255, 189);"/>
+                                                
+                                          </div>     
+                                            <div class="test1">
+                                                    <h1>contact us</h1>
+                                                    <p> <a href="heart@gmail.com">heart@gmail.com</a></p>
+                                                    <p>886+0920123456</p>
+                                                    <P>
+                                                        <center>
+                                                     <table>
+                                                         <tr>
+                                                          <Td><div class="demo8"><h1>f</h1> </div></Td>
+                                                          <Td><div class="demo8"><img src="images/logo001.png" width="30" height="30"></div> </Td>
+                                                          <Td><div class="demo8"><img src="images/logo002.png" width="30" height="30"></div></Td>
+                                                         </tr>
+                                                     </table>  
+                                                    </center>
+                                                   </P>
+                                         </div>   
+                                        </div>
+                                    </div>                                   
+                                      <div class="container6" id="nav1">
+                                            <div class="fixed-width clearfix">
+                                            <div class="col-7">
+                                              <a href="#">仙劍群俠傳</a>
+                                            </div>
+                                            <div class="col-5">
+                                                <a href="#">產品</a>
+                                                <a href="#">熱門活動</a>
+                                                <a href="#">商用電腦</a>
+                                                <a href="#">服務&社群</a>
+                                                <a href="#">商店</a>
+                                            </div>          
+                                            </div>
+
+
+    </div>
+    <!-- js -->
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+
+    </script>    
+</body>
+
+</html>
