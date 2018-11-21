@@ -12,7 +12,7 @@
       .hamburger {
             width: 60px;
             height: 60px;
-            /* background-color: #aaa; */
+            
 
             position: relative;
 
@@ -53,10 +53,10 @@
     background-color: #c6ff85;
     padding: 10px 0;
      }
+     
      nav .menu {
             display: none;
             float: right;
-        
         }
      nav a {
     color: #222;
@@ -98,6 +98,7 @@ nav .menu a:hover {
 
         transition: all .3s;
     }
+    /* 滑過去選單底色 */
     nav .menu a:hover {
         background-color: #ecffd4;
     }
@@ -186,8 +187,10 @@ footer {
                 let w = $(window).width();
                 console.log(w);
                 if(w>600){
-                    $(".menu").show();
+                    //show秀出選單
+                    $(".menu").show(); 
                 }else{
+                    //hide隱藏選單
                     $(".menu").hide();
                 }
             });
@@ -198,6 +201,7 @@ footer {
 <body>
     <nav class="full-width">
         <div class="fixed-width clearfix">
+            <!-- 手機選單 -->
                 <div class="hamburger">
                         <span></span>
                     </div>
