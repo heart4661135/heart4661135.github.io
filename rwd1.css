@@ -1,5 +1,6 @@
 .full-width {
     width: 100%;
+  
 }
 .fixed-width {
     width: 100%;
@@ -70,6 +71,9 @@
     .fixed-width {
       width: 540px;
       margin: auto;
+      content:"";
+      display: block;
+      clear: both;
     }
   
     .col-sm-1 {

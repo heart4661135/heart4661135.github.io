@@ -7,57 +7,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="rwd1.css">
     <link rel="stylesheet" href="rwd2.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <style>
-      .hamburger {
-            width: 60px;
-            height: 60px;
-            /* background-color: #aaa; */
-
-            position: relative;
-
-            float: right;
-        }
-
-        .hamburger span {
-            position: absolute;
-            width: 50px;
-            height: 5px;
-            background-color: rgb(0, 114, 6);
-
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-        }
-
-        .hamburger span::before {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 5px;
-            background-color:  rgb(0, 114, 6);
-            bottom: 15px;
-        }
-
-        .hamburger span::after {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 5px;
-            background-color: rgb(0, 114, 6);
-            top: 15px;
-        }
     nav {
     background-color: #c6ff85;
     padding: 10px 0;
      }
-     nav .menu {
-            display: none;
-            float: right;
-        
-        }
      nav a {
     color: #222;
     padding: 15px;
@@ -67,13 +21,8 @@
 }
 nav .menu a:hover {
     background-color: #ecffd4;
-
 }
-
 @media screen and (min-width: 540px){
-    .hamburger {
-                display: none;
-            }
     nav {
         background-color:  #c6ff85;
         padding: 10px 0;
@@ -85,7 +34,6 @@ nav .menu a:hover {
     /* 選單靠右浮動 */
     nav .menu {
         float: right;
-        display: block;
     }
     /* li靠左浮動 */
     nav li {
@@ -101,7 +49,6 @@ nav .menu a:hover {
     nav .menu a:hover {
         background-color: #ecffd4;
     }
-   
 }
 
 header {
@@ -176,31 +123,10 @@ footer {
 }
 
     </style>
-
-<script>
-        $(function(){
-            $(".hamburger").click(function(){
-                $(".menu").slideToggle();
-            })
-            $(window).resize(function(){
-                let w = $(window).width();
-                console.log(w);
-                if(w>600){
-                    $(".menu").show();
-                }else{
-                    $(".menu").hide();
-                }
-            });
-        })
-        
-    </script>
 </head>
 <body>
     <nav class="full-width">
         <div class="fixed-width clearfix">
-                <div class="hamburger">
-                        <span></span>
-                    </div>
             <div class="logo">
                 <a href="#">LOGO</a>
             </div>
